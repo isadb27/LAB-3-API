@@ -1,16 +1,4 @@
-export interface DogBreed{
-    id: string;
-    type: string;
-    attributes: {
-        male_weight: {min: number, max: number};
-        female_weight: {min: number, max: number};
-        life: {min: number, max: number};
-        name: string;
-        description: string;
-    };
-}
-
-export async function fetchBreeds(): Promise<DogBreed[]> {
+export async function fetchBreeds() {
     const response = await fetch('https://dogapi.dog/api/v2/breeds?page[number]=1');
     if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -19,8 +7,7 @@ export async function fetchBreeds(): Promise<DogBreed[]> {
     console.log(data.data);
     return data.data;
 }
-
-export async function fetchBreed(id: string): Promise<DogBreed> {
+export async function fetchBreed(id) {
     const response = await fetch(`https://dogapi.dog/api/v2/breeds/${id}`);
     if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -28,5 +15,3 @@ export async function fetchBreed(id: string): Promise<DogBreed> {
     const data = await response.json();
     return data.data;
 }
-
-

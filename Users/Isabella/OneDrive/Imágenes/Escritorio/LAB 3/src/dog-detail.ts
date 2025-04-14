@@ -42,10 +42,12 @@ export class DogDetail extends HTMLElement {
 
       detailContainer.innerHTML = `
         <h2>${breed.attributes.name}</h2>
+        <p>${breed.type}</p>
         <p>${breed.attributes.description}</p>
         <ul>
-          <li><strong>Life Span:</strong> ${breed.life.min} - ${breed.life.max} years</li>
-          <li><strong>Male Weight:</strong> ${breed.male_weight.min} - ${breed.male_weight.max} kg</li>
+          <li><strong>Life Span:</strong> ${breed.attributes.life.min} - ${breed.attributes.life.max} years</li>
+          <li><strong>Male Weight:</strong> ${breed.attributes.male_weight.min} - ${breed.attributes.male_weight.max} kg</li>
+          <li><strong>Female Weight:</strong> ${breed.attributes.female_weight.min} - ${breed.attributes.female_weight.max} kg</li>
         </ul>
       `;
     } catch (error) {
